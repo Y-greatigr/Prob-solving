@@ -15,9 +15,11 @@ int min(int p[], int N) {
 		}
 	}
 	for (int i = 1; i < N + 1; i++) {
+		cout << p[i] << " ";
 		time += p[i];
 		sum += time;
 	}
+	cout << '\n';
 
 	return sum;
 }
