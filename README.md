@@ -1,4 +1,2 @@
-## • C++  
-## • Java  
-## • Python  
-## • JavaScript  
+## • Baekjoon
+## • Programmers
