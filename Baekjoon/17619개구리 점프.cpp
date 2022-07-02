@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+#define FastIO cin.tie(0), cout.tie(0), ios::sync_with_stdio(0)
 using namespace std;
 
 int n,q;
@@ -18,17 +18,15 @@ void Union(int a, int b){
     if(a<b)parent[b]=a;
     else parent[a]=b;
 }
-bool cmp(tuple<int,int,int> a, tuple<int,int,int> b){
-    return get<0>(a)<get<0>(b);
-}
 int main(){
+    FastIO;
     cin>>n>>q;
     for(int i=1;i<=n;i++){
         parent[i]=i;
         int a,b,c;cin>>a>>b>>c;
         v.push_back({a,b,i});
     }
-    sort(v.begin(), v.end(), cmp);
+    sort(v.begin(), v.end());
     for(int i=0, j=1;i<n && j<n;){
         if(get<0>(v[j])<=get<1>(v[i])){
             Union(get<2>(v[i]), get<2>(v[j]));
@@ -36,10 +34,10 @@ int main(){
         }
         else i++;
     }
-    for(int i=0;i<q;i++){
+    while(q--){
         int a,b;cin>>a>>b;
-        if(Find(a)==Find(b))cout<<1<<'\n';
-        else cout<<0<<'\n';
+        if(Find(a)==Find(b))cout<<"1\n";
+        else cout<<"0\n";
     }
     return 0;
 }
